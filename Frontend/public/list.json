@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "JS Basics",
+    "title": "Learn JavaScript from Scratch",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 2,
+    "name": "React Mastery",
+    "title": "React.js Made Easy",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 3,
+    "name": "DSA Handbook",
+    "title": "Data Structures & Algorithms",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 4,
+    "name": "UI/UX Design",
+    "title": "Fundamentals of User Experience",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 5,
+    "name": "AI Basics",
+    "title": "Artificial Intelligence Introduction",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Python Tricks",
+    "title": "Handy Python Tips and Tricks",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Cloud 101",
+    "title": "Getting Started with Cloud Computing",
+    "price": 0,
+    "category": "free",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Advanced React",
+    "title": "Deep Dive into React Hooks",
+    "price": 499,
+    "category": "paid",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Machine Learning Pro",
+    "title": "Applied Machine Learning",
+    "price": 799,
+    "category": "paid",
+    "image": "/Cards.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Full-Stack Dev",
+    "title": "Complete Guide to MERN Stack",
+    "price": 999,
+    "category": "paid",
+    "image": "/Cards.jpg"
+  }
+]
