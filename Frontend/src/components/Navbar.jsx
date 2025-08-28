@@ -1,42 +1,41 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
+import Logout from "./Logout";
+import { useAuth } from "../context/AuthProvider";
 
 function Navbar() {
-
+  const [authUser, setAuthUser] = useAuth();
+  console.log(authUser);
   const [theme, setTheme] = useState(
-        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  )
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
   const element = document.documentElement;
-  useEffect(()=>{
-    if(theme==="dark")
-    {
-      element.classList.add("dark")
-      localStorage.setItem("theme","dark")
-      document.body.classList.add("dark")
-    }else{
-      element.classList.remove("dark")
-      localStorage.setItem("theme","light")
-      document.body.classList.remove("dark")
+  useEffect(() => {
+    if (theme === "dark") {
+      element.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      document.body.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      document.body.classList.remove("dark");
     }
-  },[theme])
+  }, [theme]);
 
-  const [sticky,setSticky] = useState(false)
-  useEffect(()=>{
-    const handleScroll=()=>{
-      if(window.scrollY>0)
-      {
-        setSticky(true)
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
       }
-      else
-      {
-        setSticky(false)
-      }
-    }
-    window.addEventListener('scroll',handleScroll)
-    return ()=>{
-    window.removeEventListener('scroll',handleScroll)
-    }
-  },[])
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navItems = (
     <>
@@ -55,11 +54,13 @@ function Navbar() {
     </>
   );
   return (
-    <div className={` max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-800 dark:text-white fixed top-0 left-0 right-0 z-50 ${
-          sticky
-            ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-700 dark:text-white duration-300 transition-all ease-in-out"
-            : ""
-        }`}>
+    <div
+      className={` max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-800 dark:text-white fixed top-0 left-0 right-0 z-50 ${
+        sticky
+          ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-700 dark:text-white duration-300 transition-all ease-in-out"
+          : ""
+      }`}
+    >
       <div className="navbar">
         {/* Left Section */}
         <div className="navbar-start">
@@ -92,7 +93,9 @@ function Navbar() {
           </div>
 
           {/* Logo */}
-          <a className="text-2xl font-bold cursor-pointer md:text-4xl">BookStore</a>
+          <a className="text-2xl font-bold cursor-pointer md:text-4xl">
+            BookStore
+          </a>
         </div>
 
         {/* Center Section (Desktop Menu) */}
@@ -156,13 +159,21 @@ function Navbar() {
               </svg>
             </label>
           </div>
-          <div>
-            <a className="btn bg-black text-white rounded-md hover:bg-slate-800 duration-300"
-            onClick={() => document.getElementById("my_modal_3").showModal()}>
-              Login
-            </a>
-            <Login/>
-          </div>
+          {authUser ? (
+            <Logout />
+          ) : (
+            <div className="">
+              <a
+                className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+              >
+                Login
+              </a>
+              <Login />
+            </div>
+          )}
         </div>
       </div>
     </div>
